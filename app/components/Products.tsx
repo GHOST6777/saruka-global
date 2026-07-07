@@ -1,52 +1,109 @@
 "use client";
-import { motion } from "framer-motion";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { MoveRight } from "lucide-react";
 
-const items = [
-  { id: "grains", title: "Premium Grains", img: "https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=800" },
-  { id: "fruits", title: "Fresh Fruits", img: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=800" },
-  { id: "vegetables", title: "Vegetables", img: "https://images.unsplash.com/photo-1597362868479-353396b11222?q=80&w=800" }, // FIXED IMAGE
-  { id: "spices", title: "Organic Spices", img: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=800" },
-  { id: "pulses", title: "Nutritious Pulses", img: "https://images.unsplash.com/photo-1515942400420-2b98fed1f515?q=80&w=800" },
-  { id: "dry-fruits", title: "Dry Fruits & Nuts", img: "https://images.unsplash.com/photo-1596591606975-97ee5cef3a1e?q=80&w=800" },
+const products = [
+  {
+    id: "grains",
+    title: "Grains",
+    desc: "Premium rice, wheat, maize and other Indian grain varieties.",
+    img: "/images/products/grains.jpeg",
+  },
+  {
+    id: "fruits",
+    title: "Fruits",
+    desc: "Fresh export-quality fruits packed for global markets.",
+    img: "/images/products/fruits.jpeg",
+  },
+  {
+    id: "vegetables",
+    title: "Vegetables",
+    desc: "Farm-fresh vegetables sourced from trusted Indian growers.",
+    img: "/images/products/vegetables.jpg",
+  },
+  {
+    id: "spices",
+    title: "Spices",
+    desc: "Authentic Indian spices with rich aroma and purity.",
+    img: "/images/products/spices.jpg",
+  },
+  {
+    id: "pulses",
+    title: "Pulses",
+    desc: "High-quality pulses suitable for wholesale and retail buyers.",
+    img: "/images/products/pulses.jpg",
+  },
+  {
+    id: "dry-fruits",
+    title: "Dry Fruits",
+    desc: "Premium dry fruits packed with care and export standards.",
+    img: "/images/products/dry-fruits.jpg",
+  },
 ];
 
 export default function Products() {
   return (
-    <section id="products" className="py-24 bg-zinc-50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="products" className="bg-white py-24">
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
         <div className="mb-16 text-center">
-          <span className="text-[10px] font-bold text-accent tracking-[0.5em] uppercase mb-4 block">Product Catalog</span>
-          <h3 className="text-4xl md:text-6xl font-light text-primary tracking-tighter">Explore Our Range</h3>
+          <span className="mb-3 block text-[10px] font-black uppercase tracking-[0.45em] text-accent">
+            Export Catalog
+          </span>
+
+          <h2 className="text-4xl font-light tracking-tighter text-primary md:text-6xl">
+            Our Product Range
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-2xl text-sm text-zinc-600 md:text-base">
+            Saruka Global supplies premium Indian agricultural products to
+            international buyers with reliable sourcing, packaging and export
+            support.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {items.map((item, i) => (
+        <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
+          {products.map((item, index) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 35 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="group bg-white rounded-3xl overflow-hidden shadow-sm border border-zinc-100"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ delay: index * 0.08 }}
             >
-              {/* FIXED IMAGE SCALING WITH ASPECT RATIO */}
-              <div className="aspect-square overflow-hidden">
-                <img 
-                  src={item.img} 
-                  alt={item.title} 
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
-                />
-              </div>
-              <div className="p-8">
-                <h4 className="text-2xl font-medium text-primary mb-4 tracking-tight">{item.title}</h4>
-                <Link 
-                  href={`/products/${item.id}`} 
-                  className="inline-flex items-center gap-2 text-[10px] font-bold text-accent tracking-[0.2em] hover:gap-4 transition-all uppercase"
-                >
-                  Explore Details <MoveRight size={14} />
-                </Link>
-              </div>
+              <Link
+                href={`/products/${item.id}`}
+                className="group block overflow-hidden rounded-[2rem] bg-primary shadow-xl"
+              >
+                <div className="relative h-[360px] overflow-hidden">
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent" />
+
+                  <div className="absolute bottom-0 left-0 w-full p-8">
+                    <h3 className="text-3xl font-medium text-white">
+                      {item.title}
+                    </h3>
+
+                    <p className="mt-3 text-sm text-zinc-300">
+                      {item.desc}
+                    </p>
+
+                    <div className="mt-6 inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.25em] text-accent">
+                      Explore Products
+                      <MoveRight
+                        size={18}
+                        className="transition-transform group-hover:translate-x-1"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>

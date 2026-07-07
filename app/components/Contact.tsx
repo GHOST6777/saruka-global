@@ -1,81 +1,117 @@
 "use client";
+
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa6";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 bg-white dark:bg-zinc-950">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16">
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
+    <section id="contact" className="bg-white py-24">
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -35 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-accent font-black tracking-widest uppercase mb-4">Get In Touch</h2>
-            <h3 className="text-4xl md:text-5xl font-black text-primary dark:text-white mb-8">Let's Discuss Your <br/><span className="text-accent">Global Requirements</span></h3>
-            
-            <div className="grid sm:grid-cols-2 gap-8 mb-12">
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-zinc-100 dark:bg-zinc-900 rounded-xl text-accent"><Phone size={20} /></div>
-                  <div><h4 className="font-bold dark:text-white">Phone</h4><p className="text-sm text-zinc-500">+91 11 2345 6789</p></div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-zinc-100 dark:bg-zinc-900 rounded-xl text-accent"><Mail size={20} /></div>
-                  <div><h4 className="font-bold dark:text-white">Email</h4><p className="text-sm text-zinc-500">info@sarukaglobal.com</p></div>
-                </div>
+            <span className="text-[11px] font-black uppercase tracking-[0.45em] text-accent">
+              Contact Us
+            </span>
+
+            <h2 className="mt-5 text-5xl font-light leading-tight tracking-tighter text-primary md:text-6xl">
+              Let&apos;s Discuss Your Global Requirements
+            </h2>
+
+            <p className="mt-6 max-w-xl text-zinc-600">
+              Share your product requirement, quantity, packaging preference and destination country. Our export team will get back to you with details.
+            </p>
+
+            <div className="mt-10 grid gap-5 sm:grid-cols-2">
+              <div className="rounded-3xl border border-zinc-100 bg-zinc-50 p-6">
+                <Phone className="mb-4 text-accent" size={28} />
+                <h3 className="font-bold text-primary">Phone</h3>
+                <p className="mt-2 text-sm text-zinc-600">+91 8595203649</p>
               </div>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-green-500/10 rounded-xl text-green-500"><FaWhatsapp size={20} /></div>
-                  <div><h4 className="font-bold dark:text-white">WhatsApp</h4><p className="text-sm text-zinc-500">+91 98765 43210</p></div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-zinc-100 dark:bg-zinc-900 rounded-xl text-accent"><Clock size={20} /></div>
-                  <div><h4 className="font-bold dark:text-white">Hours</h4><p className="text-sm text-zinc-500">10 AM - 7 PM IST</p></div>
-                </div>
+
+              <div className="rounded-3xl border border-zinc-100 bg-zinc-50 p-6">
+                <Mail className="mb-4 text-accent" size={28} />
+                <h3 className="font-bold text-primary">Email</h3>
+                <p className="mt-2 text-sm text-zinc-600">export@sarukaglobal.com</p>
+              </div>
+
+              <div className="rounded-3xl border border-zinc-100 bg-zinc-50 p-6">
+                <FaWhatsapp className="mb-4 text-green-500" size={28} />
+                <h3 className="font-bold text-primary">WhatsApp</h3>
+                <p className="mt-2 text-sm text-zinc-600">+91 8595203649</p>
+              </div>
+
+              <div className="rounded-3xl border border-zinc-100 bg-zinc-50 p-6">
+                <Clock className="mb-4 text-accent" size={28} />
+                <h3 className="font-bold text-primary">Business Hours</h3>
+                <p className="mt-2 text-sm text-zinc-600">10 AM - 7 PM IST</p>
               </div>
             </div>
 
-            <div className="p-8 bg-primary rounded-3xl border border-accent/20">
-              <div className="flex gap-4 items-start">
-                <MapPin className="text-accent mt-1" />
+            <div className="mt-8 rounded-3xl bg-primary p-7 text-white">
+              <div className="flex gap-4">
+                <MapPin className="mt-1 text-accent" size={28} />
                 <div>
-                  <h4 className="text-white font-bold mb-2">Corporate Office</h4>
-                  <p className="text-zinc-400 text-sm leading-relaxed">
-                    Suite 405, International Trade Tower, Nehru Place,<br/>
-                    New Delhi, 110019, India.
+                  <h3 className="font-bold">Office Location</h3>
+                  <p className="mt-2 text-sm text-zinc-300">
+                    Faridabad, Haryana, India
                   </p>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, x: 30 }}
+          <motion.div
+            initial={{ opacity: 0, x: 35 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-zinc-50 dark:bg-zinc-900 p-10 rounded-[3rem] shadow-2xl border border-zinc-200 dark:border-white/5"
+            className="rounded-[2rem] border border-zinc-100 bg-zinc-50 p-6 shadow-2xl md:p-10"
           >
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-zinc-500 ml-1">Full Name</label>
-                  <input type="text" className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-zinc-800 border-none focus:ring-2 focus:ring-accent outline-none transition-all shadow-sm" placeholder="John Doe" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-zinc-500 ml-1">Email</label>
-                  <input type="email" className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-zinc-800 border-none focus:ring-2 focus:ring-accent outline-none transition-all shadow-sm" placeholder="john@example.com" />
-                </div>
+            <form onSubmit={(e) => e.preventDefault()} className="space-y-5">
+              <div className="grid gap-5 md:grid-cols-2">
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  className="rounded-2xl bg-white px-5 py-4 outline-none focus:ring-2 focus:ring-accent"
+                />
+
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  className="rounded-2xl bg-white px-5 py-4 outline-none focus:ring-2 focus:ring-accent"
+                />
               </div>
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-zinc-500 ml-1">Message</label>
-                <textarea rows={4} className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-zinc-800 border-none focus:ring-2 focus:ring-accent outline-none transition-all shadow-sm resize-none" placeholder="How can we help your business?"></textarea>
+
+              <div className="grid gap-5 md:grid-cols-2">
+                <input
+                  type="text"
+                  placeholder="Country"
+                  className="rounded-2xl bg-white px-5 py-4 outline-none focus:ring-2 focus:ring-accent"
+                />
+
+                <input
+                  type="text"
+                  placeholder="Product Required"
+                  className="rounded-2xl bg-white px-5 py-4 outline-none focus:ring-2 focus:ring-accent"
+                />
               </div>
-              <button className="w-full py-5 bg-accent text-primary font-black rounded-2xl shadow-xl shadow-accent/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3">
-                SEND INQUIRY <Send size={20} />
+
+              <textarea
+                rows={5}
+                placeholder="Tell us your requirement..."
+                className="w-full resize-none rounded-2xl bg-white px-5 py-4 outline-none focus:ring-2 focus:ring-accent"
+              />
+
+              <button
+                type="submit"
+                className="flex w-full items-center justify-center gap-3 rounded-2xl bg-accent py-5 font-black uppercase tracking-widest text-primary transition hover:scale-[1.02]"
+              >
+                Send Inquiry
+                <Send size={20} />
               </button>
             </form>
           </motion.div>
