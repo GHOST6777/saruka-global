@@ -110,11 +110,6 @@ export default function About() {
 
             </div>
 
-            <button
-              className="mt-12 bg-accent text-primary font-black tracking-[0.25em] uppercase px-8 py-4 rounded-full hover:scale-105 transition"
-            >
-              Learn More
-            </button>
 
           </motion.div>
 
