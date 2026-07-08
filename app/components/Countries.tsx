@@ -4,31 +4,32 @@ import Marquee from "react-fast-marquee";
 import { Globe2, PackageCheck, Headphones, ShieldCheck } from "lucide-react";
 
 const row1 = [
-  "🇺🇸 United States",
-  "🇨🇦 Canada",
-  "🇬🇧 United Kingdom",
-  "🇫🇷 France",
-  "🇩🇪 Germany",
-  "🇮🇹 Italy",
-  "🇪🇸 Spain",
-  "🇳🇱 Netherlands",
-  "🇲🇽 Mexico",
-  "🇧🇷 Brazil",
+  { code: "US", name: "United States" },
+  { code: "CA", name: "Canada" },
+  { code: "UK", name: "United Kingdom" },
+  { code: "FR", name: "France" },
+  { code: "DE", name: "Germany" },
+  { code: "IT", name: "Italy" },
+  { code: "ES", name: "Spain" },
+  { code: "NL", name: "Netherlands" },
+  { code: "MX", name: "Mexico" },
+  { code: "BR", name: "Brazil" },
 ];
 
 const row2 = [
-  "🇦🇪 UAE",
-  "🇸🇦 Saudi Arabia",
-  "🇴🇲 Oman",
-  "🇶🇦 Qatar",
-  "🇰🇼 Kuwait",
-  "🇧🇭 Bahrain",
-  "🇸🇬 Singapore",
-  "🇲🇾 Malaysia",
-  "🇹🇭 Thailand",
-  "🇯🇵 Japan",
-  "🇦🇺 Australia",
+  { code: "UAE", name: "United Arab Emirates" },
+  { code: "SA", name: "Saudi Arabia" },
+  { code: "OM", name: "Oman" },
+  { code: "QA", name: "Qatar" },
+  { code: "KW", name: "Kuwait" },
+  { code: "BH", name: "Bahrain" },
+  { code: "SG", name: "Singapore" },
+  { code: "MY", name: "Malaysia" },
+  { code: "TH", name: "Thailand" },
+  { code: "JP", name: "Japan" },
+  { code: "AU", name: "Australia" },
 ];
+
 
 export default function Countries() {
   return (
@@ -36,11 +37,11 @@ export default function Countries() {
 
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* Heading */}
 
         <div className="text-center">
 
-          <span className="uppercase tracking-[0.45em] text-[11px] font-black text-accent">
+          <span className="inline-block rounded-full bg-accent/10 px-5 py-2 text-sm md:text-base font-bold
+          uppercase tracking-[0.3em] text-accent border border-accent/30">
             GLOBAL REACH
           </span>
 
@@ -141,16 +142,22 @@ export default function Countries() {
           gradient={false}
         >
 
-          {row1.map((country) => (
+         {row1.map((country) => (
 
-            <div
-              key={country}
-              className="mx-4 rounded-full border border-accent/30 bg-white/5 backdrop-blur-md px-8 py-4 text-white font-medium hover:bg-accent hover:text-primary transition"
-            >
-              {country}
-            </div>
+  <div
+    key={country.name}
+    className="mx-4 flex items-center gap-3 rounded-full border border-accent/30 bg-white/5 backdrop-blur-md px-6 py-3 text-white transition hover:bg-accent hover:text-primary"
+  >
+    <span className="rounded-full bg-accent px-3 py-1 text-xs font-black text-primary">
+      {country.code}
+    </span>
 
-          ))}
+    <span className="font-medium">
+      {country.name}
+    </span>
+  </div>
+
+))}
 
         </Marquee>
 
@@ -166,14 +173,20 @@ export default function Countries() {
 
           {row2.map((country) => (
 
-            <div
-              key={country}
-              className="mx-4 rounded-full border border-accent/30 bg-white/5 backdrop-blur-md px-8 py-4 text-white font-medium hover:bg-accent hover:text-primary transition"
-            >
-              {country}
-            </div>
+  <div
+    key={country.name}
+    className="mx-4 flex items-center gap-3 rounded-full border border-accent/30 bg-white/5 backdrop-blur-md px-6 py-3 text-white transition hover:bg-accent hover:text-primary"
+  >
+    <span className="rounded-full bg-accent px-3 py-1 text-xs font-black text-primary">
+      {country.code}
+    </span>
 
-          ))}
+    <span className="font-medium">
+      {country.name}
+    </span>
+  </div>
+
+))}
 
         </Marquee>
 

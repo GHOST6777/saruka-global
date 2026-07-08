@@ -22,7 +22,6 @@ export default function About() {
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-          {/* LEFT IMAGE */}
 
           <motion.div
             initial={{ opacity:0,x:-80 }}
@@ -52,7 +51,6 @@ export default function About() {
 
           </motion.div>
 
-          {/* RIGHT CONTENT */}
 
           <motion.div
             initial={{ opacity:0,x:80 }}
@@ -61,7 +59,8 @@ export default function About() {
             transition={{ duration:.8 }}
           >
 
-            <span className="uppercase tracking-[0.45em] text-[11px] text-accent font-black">
+            <span className="inline-block rounded-full bg-accent/10 px-5 py-2 text-sm md:text-base font-bold
+          uppercase tracking-[0.3em] text-accent border border-accent/30">
               ABOUT US
             </span>
 

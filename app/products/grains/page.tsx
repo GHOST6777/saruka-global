@@ -52,7 +52,8 @@ export default function GrainsPage() {
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-14 text-center">
-            <span className="text-[11px] font-black uppercase tracking-[0.45em] text-accent">
+            <span className="inline-block rounded-full bg-accent/10 px-5 py-2 text-sm md:text-base font-bold
+          uppercase tracking-[0.3em] text-accent border border-accent/30">
               Explore Grains
             </span>
 

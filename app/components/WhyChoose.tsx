@@ -48,7 +48,8 @@ export default function WhyChoose() {
     <section className="bg-primary py-24">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <div className="mb-16 text-center">
-          <span className="mb-3 block text-[10px] font-black uppercase tracking-[0.45em] text-accent">
+          <span className="inline-block rounded-full bg-accent/10 px-5 py-2 text-sm md:text-base font-bold
+          uppercase tracking-[0.3em] text-accent border border-accent/30">
             Why Choose Us
           </span>
 
