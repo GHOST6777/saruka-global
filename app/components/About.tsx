@@ -68,14 +68,14 @@ export default function About() {
               Exporting India's Finest Agricultural Products
             </h2>
 
-            <p className="text-zinc-600 mt-8 leading-8">
+            <p className="text-zinc-1600 mt-8 leading-8">
               Saruka Global is a trusted agricultural export company
               committed to supplying premium-quality grains, fruits,
               vegetables, spices, pulses and dry fruits to buyers
               across international markets.
             </p>
 
-            <p className="text-zinc-600 mt-6 leading-8">
+            <p className="text-zinc-1600 mt-6 leading-8">
               We work directly with reliable farmers and processing
               units to ensure every shipment meets international
               quality standards while maintaining consistency,
