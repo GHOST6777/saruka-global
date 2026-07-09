@@ -6,7 +6,7 @@ const fruitProducts = [
 
 {
 name:"Apples",
-image:"/images/apple.jpg",
+image:"/images/Fruits/apples.jpeg",
 
 desc:"Export-grade Class 1 fresh apples sourced from certified orchards. Crisp, firm and professionally graded for uniform color and high Brix levels.",
 
