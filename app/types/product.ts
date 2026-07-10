@@ -7,4 +7,5 @@ export interface Product {
   purity?: string;
   packaging: string;
   shelfLife: string;
+  varieties?: string[];
 }

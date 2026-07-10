@@ -10,6 +10,11 @@ const maizeProducts: Product[] = [
     purity: "98–99% Minimum",
     packaging: "25kg, 50kg PP Bags or Bulk",
     shelfLife: "12 Months",
+    varieties: [
+  "Feed Grade",
+  "Food Grade",
+  "Industrial Grade",
+],
   },
 
   {
@@ -21,6 +26,11 @@ const maizeProducts: Product[] = [
     purity: "98% Minimum",
     packaging: "25kg, 50kg Bags or Bulk",
     shelfLife: "12 Months",
+    varieties: [
+  "Fine Broken",
+  "Medium Broken",
+  "Coarse Broken",
+],
   },
 
   {
@@ -32,6 +42,11 @@ const maizeProducts: Product[] = [
     purity: "98–99% Minimum",
     packaging: "25kg, 50kg PP Bags",
     shelfLife: "12 Months",
+    varieties: [
+  "Food Grade",
+  "Milling Grade",
+  "Industrial Grade",
+],
   },
 
   {
@@ -43,6 +58,11 @@ const maizeProducts: Product[] = [
     purity: "Fresh Produce",
     packaging: "5kg, 10kg Cartons",
     shelfLife: "Fresh: 10–15 Days | Frozen: 12 Months",
+    varieties: [
+  "Fresh",
+  "Frozen",
+  "Sweet Gold",
+],
   },
 
   {
@@ -54,6 +74,10 @@ const maizeProducts: Product[] = [
     purity: "99% Minimum",
     packaging: "25kg, 50kg Bags",
     shelfLife: "12 Months",
+    varieties: [
+  "Butterfly",
+  "Mushroom",
+],
   },
 
   {
@@ -65,6 +89,10 @@ const maizeProducts: Product[] = [
     purity: "Fresh Produce",
     packaging: "2kg, 5kg Cartons",
     shelfLife: "7–10 Days",
+    varieties: [
+  "Fresh",
+  "Processed",
+],
   },
 ];
 

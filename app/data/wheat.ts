@@ -10,6 +10,11 @@ const wheatProducts: Product[] = [
     purity: "Export Grade",
     packaging: "25kg & 50kg PP / Jute Bags",
     shelfLife: "12 Months",
+    varieties: [
+  "MP Sharbati",
+  "Premium Milling",
+  "Lok-1",
+],
   },
 
   {
@@ -21,6 +26,11 @@ const wheatProducts: Product[] = [
     purity: "Export Grade",
     packaging: "25kg & 50kg Bags",
     shelfLife: "12 Months",
+    varieties: [
+  "Lokwan",
+  "Premium Lokwan",
+  "Milling Grade",
+],
   },
 
   {
@@ -32,6 +42,11 @@ const wheatProducts: Product[] = [
     purity: "Premium Grade",
     packaging: "25kg & 50kg Bags",
     shelfLife: "12 Months",
+    varieties: [
+  "Amber Durum",
+  "Hard Durum",
+  "Pasta Grade",
+],
   },
 ];
 

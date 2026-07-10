@@ -1,4 +1,10 @@
-import { ArrowRight, BadgeCheck, Calendar, MapPin, Package } from "lucide-react";
+import {
+  ArrowRight,
+  BadgeCheck,
+  Calendar,
+  MapPin,
+  Package,
+} from "lucide-react";
 
 interface ProductCardProps {
   name: string;
@@ -9,6 +15,7 @@ interface ProductCardProps {
   purity?: string;
   packaging: string;
   shelfLife: string;
+  varieties?: string[];
 }
 
 export default function ProductCard({
@@ -20,9 +27,12 @@ export default function ProductCard({
   purity,
   packaging,
   shelfLife,
+  varieties,
 }: ProductCardProps) {
   return (
     <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+      {/* Product Image */}
+
       <div className="relative h-48 overflow-hidden bg-zinc-100">
         <img
           src={image}
@@ -35,6 +45,8 @@ export default function ProductCard({
         </span>
       </div>
 
+      {/* Product Content */}
+
       <div className="flex flex-1 flex-col p-5">
         <h3 className="text-xl font-bold tracking-tight text-primary">
           {name}
@@ -44,12 +56,44 @@ export default function ProductCard({
           {desc}
         </p>
 
+        {/* Varieties */}
+
+        {varieties && varieties.length > 0 && (
+          <div className="mt-4">
+            <p className="mb-2 text-[11px] font-black uppercase tracking-[0.16em] text-primary">
+              Varieties
+            </p>
+
+            <div className="flex flex-wrap gap-2">
+              {varieties.map((variety) => (
+                <span
+                  key={variety}
+                  className="rounded-full border border-zinc-200 bg-[#faf8f2] px-3 py-1 text-[11px] font-semibold text-zinc-700 transition hover:border-accent hover:bg-accent hover:text-primary"
+                >
+                  {variety}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Specifications */}
+
         <div className="mt-5 grid grid-cols-2 gap-2">
           <Spec icon={MapPin} label="Origin" value={origin} />
-          <Spec icon={BadgeCheck} label="Purity" value={purity || "Export Grade"} />
+
+          <Spec
+            icon={BadgeCheck}
+            label="Purity"
+            value={purity || "Export Grade"}
+          />
+
           <Spec icon={Package} label="Packaging" value={packaging} />
+
           <Spec icon={Calendar} label="Shelf Life" value={shelfLife} />
         </div>
+
+        {/* Quote Button */}
 
         <a
           href="/#contact"

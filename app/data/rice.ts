@@ -1,13 +1,21 @@
-const riceProducts = [
+import { Product } from "@/app/types/product";
+
+const riceProducts: Product[] = [
   {
     name: "1121 Basmati Rice",
     tag: "Best Seller",
     image: "/images/rice/1121.jpg",
-    desc: "Premium-quality 1121 Basmati Rice renowned for its extra-long grain length, exceptional aroma, and excellent cooking characteristics. Highly preferred in international markets.",
+    desc: "Premium-quality 1121 Basmati Rice renowned for its extra-long grain length, exceptional aroma and excellent cooking characteristics. Highly preferred in international markets.",
     origin: "Haryana, Punjab, Uttar Pradesh",
     purity: "Export Grade",
     packaging: "5kg, 10kg, 25kg, 50kg PP/Jute Bags",
     shelfLife: "24 Months",
+    varieties: [
+      "Raw",
+      "Steam",
+      "Sella",
+      "Golden Sella",
+    ],
   },
 
   {
@@ -19,6 +27,12 @@ const riceProducts = [
     purity: "Export Grade",
     packaging: "5kg, 10kg, 25kg, 50kg Bags",
     shelfLife: "24 Months",
+    varieties: [
+      "Raw",
+      "Steam",
+      "Sella",
+      "Golden Sella",
+    ],
   },
 
   {
@@ -30,6 +44,12 @@ const riceProducts = [
     purity: "Export Grade",
     packaging: "25kg & 50kg Bags",
     shelfLife: "24 Months",
+    varieties: [
+      "Raw",
+      "Parboiled",
+      "5% Broken",
+      "25% Broken",
+    ],
   },
 
   {
@@ -41,6 +61,12 @@ const riceProducts = [
     purity: "Export Grade",
     packaging: "5kg, 10kg, 25kg, 50kg Bags",
     shelfLife: "24 Months",
+    varieties: [
+      "Raw",
+      "Steam",
+      "Sella",
+      "Golden Sella",
+    ],
   },
 
   {
@@ -52,6 +78,11 @@ const riceProducts = [
     purity: "Premium Grade",
     packaging: "5kg, 10kg, 25kg, 50kg Bags",
     shelfLife: "24 Months",
+    varieties: [
+      "Raw",
+      "Steam",
+      "Aged",
+    ],
   },
 ];
 
