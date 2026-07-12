@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Globe, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import QuoteModal from "./QuoteModal";
+import Image from "next/image";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,10 +34,16 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-5 flex items-center justify-between">
-          <a href="#hero" className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center">
-              <Globe className="text-primary" size={26} />
-            </div>
+          <a href="/" className="flex items-center gap-3">
+            <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-2xl bg-white/10 p-1 shadow-[0_8px_25px_rgba(212,175,55,0.28)] ring-1 ring-accent/40">
+  <Image
+    src="/images/logo.png"
+    alt="Saruka Global Logo"
+    fill
+    priority
+    className="object-contain p-1 drop-shadow-[0_4px_7px_rgba(0,0,0,0.35)]"
+  />
+</div>
 
             <h1 className="text-white text-xl font-black tracking-tight">
               SARUKA<span className="text-accent">GLOBAL</span>
