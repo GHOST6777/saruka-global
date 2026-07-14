@@ -1,121 +1,119 @@
-"use client";
+import Image from "next/image";
+import { Globe2, Target } from "lucide-react";
 
-import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
-
-const features = [
-  "Premium Quality Agricultural Products",
-  "Reliable Global Export Network",
-  "Competitive Wholesale Pricing",
-  "Customized Packaging Solutions",
-  "Timely Worldwide Deliveries",
-  "Dedicated Buyer Support",
-];
-
-export default function About() {
+export default function AboutPage() {
   return (
-    <section
-      id="about"
-      className="bg-[#f8faf8] py-24 overflow-hidden"
-    >
-      <div className="max-w-7xl mx-auto px-6">
+    <main className="min-h-screen bg-[#faf8f2] pt-24">
+      {/* Who We Are */}
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-
-
-          <motion.div
-            initial={{ opacity:0,x:-80 }}
-            whileInView={{ opacity:1,x:0 }}
-            viewport={{ once:true }}
-            transition={{ duration:.8 }}
-            className="relative"
-          >
-
-            <img
-              src="/images/about.jpg"
-              alt="About Saruka"
-              className="rounded-[2.5rem] shadow-2xl object-cover h-[620px] w-full"
+      <section className="bg-white px-6 py-20">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+          <div className="relative min-h-[420px] overflow-hidden rounded-[2rem] shadow-xl">
+            <Image
+              src="/images/about/about.jpg"
+              alt="Saruka Global agricultural exports"
+              fill
+              priority
+              className="object-cover"
             />
 
-            <div className="absolute -bottom-10 -right-10 bg-primary text-white rounded-3xl p-8 shadow-2xl">
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/75 via-transparent to-transparent" />
 
-              <h2 className="text-5xl font-black text-accent">
-                4+
-              </h2>
-
-              <p className="uppercase tracking-[0.25em] text-xs mt-2">
-                Years Experience
+            <div className="absolute bottom-0 left-0 p-7 text-white">
+              <p className="text-xs font-black uppercase tracking-[0.28em] text-accent">
+                India To The World
               </p>
 
+              <h1 className="mt-2 text-3xl font-semibold">
+                Trusted Export Solutions
+              </h1>
             </div>
+          </div>
 
-          </motion.div>
-
-
-          <motion.div
-            initial={{ opacity:0,x:80 }}
-            whileInView={{ opacity:1,x:0 }}
-            viewport={{ once:true }}
-            transition={{ duration:.8 }}
-          >
-
-            <span className="inline-block rounded-full bg-accent/10 px-5 py-2 text-sm md:text-base font-bold
-          uppercase tracking-[0.3em] text-accent border border-accent/30">
-              ABOUT US
+          <div>
+            <span className="text-xs font-black uppercase tracking-[0.35em] text-accent">
+              Who We Are
             </span>
 
-            <h2 className="text-5xl lg:text-6xl font-light leading-tight text-primary mt-4">
-              Exporting India's Finest Agricultural Products
+            <h2 className="mt-4 text-4xl font-semibold tracking-tight text-primary md:text-5xl">
+              A Professional Partner For Agricultural Trade
             </h2>
 
-            <p className="text-zinc-1600 mt-8 leading-8">
-              Saruka Global is a trusted agricultural export company
-              committed to supplying premium-quality grains, fruits,
-              vegetables, spices, pulses and dry fruits to buyers
-              across international markets.
+            <p className="mt-6 text-[15px] font-medium leading-8 text-zinc-700">
+              Saruka Global supplies premium Indian grains, fresh fruits,
+              vegetables, whole spices, pulses and dry fruits to international
+              buyers. We focus on understanding each buyer&apos;s product,
+              packaging, quantity and destination requirements before arranging
+              the supply.
             </p>
 
-            <p className="text-zinc-1600 mt-6 leading-8">
-              We work directly with reliable farmers and processing
-              units to ensure every shipment meets international
-              quality standards while maintaining consistency,
-              transparency and long-term business relationships.
+            <p className="mt-4 text-[15px] font-medium leading-8 text-zinc-700">
+              Our objective is to provide dependable sourcing, clear
+              communication and organized export coordination while building
+              long-term business relationships across global markets.
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-5 mt-10">
+            <p className="mt-4 text-[15px] font-medium leading-8 text-zinc-700">
+              We work with trusted agricultural suppliers and logistics partners
+              to support buyers with suitable products, packaging options and
+              export documentation according to their requirements.
+            </p>
+          </div>
+        </div>
+      </section>
 
-              {features.map((item,index)=>(
+      {/* Vision & Mission */}
 
-                <motion.div
-                  key={index}
-                  initial={{ opacity:0,y:20 }}
-                  whileInView={{ opacity:1,y:0 }}
-                  transition={{ delay:index*.08 }}
-                  viewport={{ once:true }}
-                  className="flex gap-3"
-                >
+      <section className="px-6 py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 text-center">
+            <span className="text-xs font-black uppercase tracking-[0.35em] text-accent">
+              Our Direction
+            </span>
 
-                  <CheckCircle2
-                    className="text-accent mt-1"
-                    size={22}
-                  />
+            <h2 className="mt-4 text-4xl font-semibold tracking-tight text-primary md:text-5xl">
+              Vision & Mission
+            </h2>
 
-                  <span className="text-zinc-700">
-                    {item}
-                  </span>
+            <p className="mx-auto mt-5 max-w-2xl text-[15px] font-medium leading-7 text-zinc-700">
+              Our direction is shaped by dependable service, transparent trade
+              practices and long-term international partnerships.
+            </p>
+          </div>
 
-                </motion.div>
+          <div className="grid gap-7 md:grid-cols-2">
+            <div className="rounded-[2rem] bg-primary p-8 text-white shadow-xl md:p-10">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-primary">
+                <Globe2 size={28} />
+              </div>
 
-              ))}
+              <h3 className="mt-6 text-3xl font-semibold">Our Vision</h3>
 
+              <p className="mt-4 font-medium leading-8 text-zinc-300">
+                To become a trusted name in international agricultural trade by
+                delivering dependable products, professional service and
+                long-term value to buyers worldwide.
+              </p>
             </div>
 
+            <div className="rounded-[2rem] border border-zinc-200 bg-white p-8 shadow-xl md:p-10">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-accent">
+                <Target size={28} />
+              </div>
 
-          </motion.div>
+              <h3 className="mt-6 text-3xl font-semibold text-primary">
+                Our Mission
+              </h3>
 
+              <p className="mt-4 font-medium leading-8 text-zinc-700">
+                To connect trusted Indian agricultural supply networks with
+                global buyers through transparent communication, export-focused
+                quality, reliable packaging and coordinated logistics.
+              </p>
+            </div>
+          </div>
         </div>
-
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }

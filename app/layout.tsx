@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
 import FloatingWhatsApp from "@/app/components/FloatingWhatsApp";
+import BackToTop from "@/app/components/BackToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -103,6 +104,7 @@ export default function RootLayout({
         {children}
 
         <FloatingWhatsApp />
+        <BackToTop />
       </body>
     </html>
   );
