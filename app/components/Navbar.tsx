@@ -3,8 +3,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, type ReactNode } from "react";
-import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronRight,
+  Menu,
+  Search,
+  X,
+} from "lucide-react";
 import QuoteModal from "./QuoteModal";
+import ProductSearch from "./ProductSearch";
 
 const productLinks = [
   { label: "Rice", href: "/products/grains/rice" },
@@ -21,6 +28,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const [quoteOpen, setQuoteOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -40,7 +48,7 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const shouldLockScroll = menuOpen || quoteOpen;
+    const shouldLockScroll = menuOpen || quoteOpen || searchOpen;
     const previousOverflow = document.body.style.overflow;
 
     document.body.style.overflow = shouldLockScroll ? "hidden" : "";
@@ -48,7 +56,7 @@ export default function Navbar() {
     return () => {
       document.body.style.overflow = previousOverflow;
     };
-  }, [menuOpen, quoteOpen]);
+  }, [menuOpen, quoteOpen, searchOpen]);
 
   useEffect(() => {
     function handleEscape(event: KeyboardEvent) {
@@ -56,6 +64,7 @@ export default function Navbar() {
         setMenuOpen(false);
         setProductsOpen(false);
         setQuoteOpen(false);
+        setSearchOpen(false);
       }
     }
 
@@ -76,6 +85,11 @@ export default function Navbar() {
     setQuoteOpen(true);
   }
 
+  function openSearch() {
+    closeMenu();
+    setSearchOpen(true);
+  }
+
   return (
     <>
       <nav
@@ -91,25 +105,26 @@ export default function Navbar() {
           <Link
             href="/"
             aria-label="Go to Saruka Global homepage"
-            className="group flex min-w-0 items-center gap-3"
+            className="group flex min-w-0 items-center gap-3 md:gap-4"
           >
-            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-2xl border border-accent/40 bg-white/10 shadow-[0_8px_28px_rgba(212,175,55,0.22)] transition duration-300 group-hover:-translate-y-0.5 group-hover:border-accent md:h-14 md:w-14">
+            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-accent/45 bg-white shadow-[0_10px_30px_rgba(212,175,55,0.28)] transition-all duration-300 group-hover:scale-105 group-hover:border-accent md:h-16 md:w-16">
               <Image
                 src="/images/logo.png"
                 alt="Saruka Global"
                 fill
                 priority
-                sizes="56px"
-                className="object-contain p-1.5 drop-shadow-[0_5px_7px_rgba(0,0,0,0.35)]"
+                sizes="64px"
+                className="object-contain p-1.5 md:p-2"
               />
             </div>
 
-            <div className="min-w-0">
-              <p className="truncate text-[17px] font-black tracking-tight text-white md:text-xl">
-                SARUKA<span className="text-accent">GLOBAL</span>
+            <div className="min-w-0 leading-none">
+              <p className="truncate text-[19px] font-black tracking-[-0.04em] text-white sm:text-[22px] md:text-[27px]">
+                SARUKA
+                <span className="ml-1.5 text-accent">GLOBAL</span>
               </p>
 
-              <p className="hidden text-[9px] font-bold uppercase tracking-[0.22em] text-white/55 sm:block">
+              <p className="mt-1 hidden text-[8px] font-extrabold uppercase tracking-[0.28em] text-white/60 sm:block md:text-[9px]">
                 Agricultural Exports
               </p>
             </div>
@@ -117,18 +132,16 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
 
-          <div className="hidden items-center gap-7 lg:flex">
+          <div className="hidden items-center gap-6 lg:flex xl:gap-7">
             <NavLink href="/#hero">Home</NavLink>
 
             <NavLink href="/about">About</NavLink>
 
-            {/* Desktop Products Menu */}
-
             <div className="group relative">
               <button
                 type="button"
-                className="flex items-center gap-1.5 py-4 text-sm font-semibold text-white transition hover:text-accent"
                 aria-label="Open products menu"
+                className="relative flex items-center gap-1.5 py-4 text-[15px] font-semibold tracking-wide text-white transition duration-300 hover:text-accent"
               >
                 Products
 
@@ -183,6 +196,15 @@ export default function Navbar() {
 
             <button
               type="button"
+              onClick={() => setSearchOpen(true)}
+              aria-label="Search products"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white transition hover:border-accent hover:bg-accent/10 hover:text-accent"
+            >
+              <Search size={19} />
+            </button>
+
+            <button
+              type="button"
               onClick={() => setQuoteOpen(true)}
               className="rounded-full bg-accent px-6 py-3 text-sm font-black text-primary shadow-lg transition hover:-translate-y-0.5 hover:bg-white"
             >
@@ -212,8 +234,6 @@ export default function Navbar() {
         }`}
         aria-hidden={!menuOpen}
       >
-        {/* Overlay */}
-
         <button
           type="button"
           onClick={closeMenu}
@@ -222,8 +242,6 @@ export default function Navbar() {
             menuOpen ? "opacity-100" : "opacity-0"
           }`}
         />
-
-        {/* Drawer */}
 
         <aside
           className={`absolute right-0 top-0 flex h-[100dvh] w-[88%] max-w-[390px] flex-col overflow-hidden bg-primary shadow-2xl transition-transform duration-300 ease-out ${
@@ -238,7 +256,7 @@ export default function Navbar() {
               onClick={closeMenu}
               className="flex min-w-0 items-center gap-3"
             >
-              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-2xl border border-accent/40 bg-white/10">
+              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-accent/45 bg-white shadow-[0_8px_24px_rgba(212,175,55,0.22)]">
                 <Image
                   src="/images/logo.png"
                   alt="Saruka Global"
@@ -248,12 +266,13 @@ export default function Navbar() {
                 />
               </div>
 
-              <div className="min-w-0">
-                <p className="truncate text-lg font-black tracking-tight text-white">
-                  SARUKA<span className="text-accent">GLOBAL</span>
+              <div className="min-w-0 leading-none">
+                <p className="truncate text-[19px] font-black tracking-[-0.04em] text-white">
+                  SARUKA
+                  <span className="ml-1 text-accent">GLOBAL</span>
                 </p>
 
-                <p className="text-[8px] font-bold uppercase tracking-[0.22em] text-white/50">
+                <p className="mt-1 text-[8px] font-extrabold uppercase tracking-[0.24em] text-white/50">
                   Agricultural Exports
                 </p>
               </div>
@@ -280,8 +299,6 @@ export default function Navbar() {
               <MobileLink href="/about" onClick={closeMenu}>
                 About
               </MobileLink>
-
-              {/* Mobile Products Accordion */}
 
               <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5">
                 <button
@@ -332,6 +349,15 @@ export default function Navbar() {
               <MobileLink href="/#contact" onClick={closeMenu}>
                 Contact
               </MobileLink>
+
+              <button
+                type="button"
+                onClick={openSearch}
+                className="flex w-full items-center justify-between rounded-2xl border border-transparent px-5 py-4 text-left text-lg font-bold text-white transition hover:border-white/10 hover:bg-white/5 hover:text-accent"
+              >
+                Search Products
+                <Search size={20} className="text-accent" />
+              </button>
             </div>
 
             {/* Quote Card */}
@@ -370,6 +396,11 @@ export default function Navbar() {
         isOpen={quoteOpen}
         onClose={() => setQuoteOpen(false)}
       />
+
+      <ProductSearch
+        isOpen={searchOpen}
+        onClose={() => setSearchOpen(false)}
+      />
     </>
   );
 }
@@ -384,7 +415,7 @@ function NavLink({
   return (
     <Link
       href={href}
-      className="text-sm font-semibold text-white transition hover:text-accent"
+      className="relative text-[15px] font-semibold tracking-wide text-white transition duration-300 hover:text-accent after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
     >
       {children}
     </Link>
