@@ -31,7 +31,8 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <span className="text-xs font-black uppercase tracking-[0.35em] text-accent">
+            <span className="inline-block rounded-full bg-accent/10 px-5 py-2 text-sm md:text-base font-bold
+          uppercase tracking-[0.3em] text-accent border border-accent/30">
               Who We Are
             </span>
 

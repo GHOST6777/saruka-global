@@ -3,7 +3,7 @@
 import { MessageCircle } from "lucide-react";
 
 export default function FloatingWhatsApp() {
-  const phone = "918826316795"; 
+  const phone = "918595203649"; 
 
   const message = encodeURIComponent(
 `Hello Saruka Global,
